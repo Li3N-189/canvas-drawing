@@ -27,6 +27,15 @@
           }
           ctx.stroke();
         }
+        
+        canvas.addEventListener('touchstart', () => mode = BEGINNING);
+        canvas.addEventListener('touchend', () => mode = IDLE);
+        canvas.addEventListener('touchmove', (e) => {
+          if (mode != IDLE) {
+            draw(e.touches[0].pageX, e.touches[0].pageY);
+          }
+        });
+        
         canvas.addEventListener('mousedown', () => mode = BEGINNING);
         canvas.addEventListener('mouseup', () => mode = IDLE);
         canvas.addEventListener('mousemove', (e) => {
