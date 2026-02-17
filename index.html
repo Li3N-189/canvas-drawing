@@ -35,6 +35,7 @@
             draw(e.touches[0].pageX, e.touches[0].pageY);
           }
         });
+        canvas.addEventListener('mouseout', () => mode = IDLE);
         
         canvas.addEventListener('mousedown', () => mode = BEGINNING);
         canvas.addEventListener('mouseup', () => mode = IDLE);
@@ -43,6 +44,7 @@
             draw(e.offsetX, e.offsetY);
           }
         });
+        canvas.addEventListener('mouseout', () => mode = IDLE);
       });
     </script>
   </body>
