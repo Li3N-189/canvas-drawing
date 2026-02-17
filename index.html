@@ -31,10 +31,11 @@
         canvas.addEventListener('touchstart', () => mode = BEGINNING);
         canvas.addEventListener('touchend', () => mode = IDLE);
         canvas.addEventListener('touchmove', (e) => {
+          e.preventDefault();
           if (mode != IDLE) {
             draw(e.touches[0].pageX, e.touches[0].pageY);
           }
-        });
+        }, { passive: false });
         canvas.addEventListener('mouseout', () => mode = IDLE);
         
         canvas.addEventListener('mousedown', () => mode = BEGINNING);
